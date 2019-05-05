@@ -1,10 +1,8 @@
 <template>
-    <div class="container">
+    <div>
         <h3>Todos</h3>
         <div class="todos">
-            <div v-for="todo in getAllTodos" :key="todo.id" class="todo">
-                {{todo.title}}
-            </div>
+            <div v-for="todo in getAllTodos" :key="todo.id" class="todo"> {{todo.title}} </div>
         </div>
     </div>
 </template>
@@ -18,7 +16,7 @@ export default {
         ...mapActions(['fetchTodos'])
     },
     computed: mapGetters(['getAllTodos']),
-    created0() {
+    created() {
         this.fetchTodos()
     }
 }
