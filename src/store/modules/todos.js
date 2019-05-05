@@ -15,8 +15,15 @@ const state = {
 const getters = {
     getAllTodos: (state) => state.todos
 }
-const actions = {}
-const mutations = {}
+const actions = {
+    async fetchTodos ({ commit }) {
+        const res = await axios.get('https://jsonplaceholder.typicode.com/todos')
+        commit('setTodos', res.data)
+    }
+}
+const mutations = {
+    setTodos: (state, todos) => (state.todos = todos)
+}
 
 export default {
     state,
